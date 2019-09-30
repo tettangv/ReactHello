@@ -31,7 +31,7 @@ class App extends Component {
           <Link to="/users">Users..</Link>
         </div>
         <div>
-          <Link to="/postss">Posts</Link>
+          <Link to="/postss">Posts...</Link>
         </div>
         <Route path="/users" component={Users}></Route>
         <Route path="/postss" component={Postss}></Route>
