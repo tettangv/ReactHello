@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
+import withRequest from "../lib/withRequest";
 
 class Postss extends Component {
   state = {
@@ -10,13 +11,13 @@ class Postss extends Component {
   //   super();
   // }
 
-  async componentDidMount() {
-    const result = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    this.setState({ data: result.data });
-    console.log("Load Post Data");
-  }
+  // async componentDidMount() {
+  //   const result = await axios.get(
+  //     "https://jsonplaceholder.typicode.com/posts"
+  //   );
+  //   this.setState({ data: result.data });
+  //   console.log("Load Post Data");
+  // }
 
   render() {
     console.log("render Post");
@@ -32,12 +33,12 @@ class Postss extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.data.map(userss => (
-              <tr>
-                <td>{userss.userId}</td>
-                <td>{userss.id}</td>
-                <td>{userss.title}</td>
-                <td>{userss.body}</td>
+            {this.props.data.map(post => (
+              <tr key={post.id}>
+                <td>{post.userId}</td>
+                <td>{post.id}</td>
+                <td>{post.title}</td>
+                <td>{post.body}</td>
               </tr>
             ))}
           </tbody>
@@ -47,4 +48,6 @@ class Postss extends Component {
   }
 }
 
-export default Postss;
+export default withRequest("https://jsonplaceholder.typicode.com/posts")(
+  Postss
+);

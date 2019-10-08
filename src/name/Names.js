@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class Users extends Component {
+class Names extends Component {
   state = {
     data: []
   };
 
-  // constructor() {
-  //   super();
-  // }
+  constructor() {
+    super();
+    this.state.data = null;
+  }
 
   async componentDidMount() {
     const result = await axios.get(
@@ -20,17 +21,20 @@ class Users extends Component {
 
   onChange = event => {
     //console.log(event.target.value);
-    this.props.onNameChange(event.target.value);
+    this.props.onNameChanges(event.target.value);
   };
 
   render() {
     console.log("render Name");
     return (
       <div>
-        <input type="text" onChange={this.onChange}></input>
+        <div>Hello permanent {this.props.name}</div>
+        <div>
+          <input type="text" onChange={this.onChange}></input>
+        </div>
       </div>
     );
   }
 }
 
-export default Users;
+export default Names;
