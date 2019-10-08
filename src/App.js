@@ -28,10 +28,10 @@ class App extends Component {
           <Link to="/">Home</Link>
         </div>
         <div>
-          <Link to="/users">Users...1</Link>
+          <Link to="/users">Users...12</Link>
         </div>
         <div>
-          <Link to="/postss">Posts..2</Link>
+          <Link to="/postss">Posts..23</Link>
         </div>
         <Route path="/users" component={Users}></Route>
         <Route path="/postss" component={Postss}></Route>
