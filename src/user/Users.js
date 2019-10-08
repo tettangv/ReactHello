@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 class Users extends Component {
   state = {
@@ -10,13 +10,13 @@ class Users extends Component {
   //   super();
   // }
 
-  async componentDidMount() {
-    const result = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-    this.setState({ data: result.data });
-    console.log("Load User Data");
-  }
+  // async componentDidMount() {
+  //   const result = await axios.get(
+  //     "https://jsonplaceholder.typicode.com/users"
+  //   );
+  //   this.setState({ data: result.data });
+  //   console.log("Load User Data");
+  // }
 
   onChange = event => {
     //console.log(event.target.value);
@@ -36,13 +36,17 @@ class Users extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.data.map(userss => (
-              <tr>
-                <td>{userss.id}</td>
-                <td>{userss.name}</td>
-                <td>{userss.email}</td>
-              </tr>
-            ))}
+            {this.props.data === undefined ? (
+              <div />
+            ) : (
+              this.state.data.map(userss => (
+                <tr key={userss.id}>
+                  <td>{userss.id}</td>
+                  <td>{userss.name}</td>
+                  <td>{userss.email}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-//import logo, { ReactComponent } from "./logo.svg";
 import "./App.css";
 import Users from "./user/Users";
-//import { thisTypeAnnotation } from "@babel/types";
 import Names from "./name/Names";
 import Postss from "./post/Postss";
 import { Route, Link } from "react-router-dom";
-
+import Request from "./lib/Request";
 class App extends Component {
   state = {
     name: "Tet Tangvongsasiriwat"
@@ -33,8 +31,22 @@ class App extends Component {
         <div>
           <Link to="/postss">Posts...</Link>
         </div>
-        <Route path="/users" component={Users}></Route>
-        <Route path="/postss" component={Postss}></Route>
+        <Route
+          path="/users"
+          component={() => (
+            <Request url="https://jsonplaceholder.typicode.com/users">
+              {data => <Users data={data} />}
+            </Request>
+          )}
+        ></Route>
+        <Route
+          path="/postss"
+          component={() => (
+            <Request url="https://jsonplaceholder.typicode.com/posts">
+              {data => <Postss data={data} />}
+            </Request>
+          )}
+        ></Route>
       </div>
     );
   }
