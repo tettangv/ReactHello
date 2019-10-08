@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 class Users extends Component {
   state = {
@@ -10,13 +10,13 @@ class Users extends Component {
   //   super();
   // }
 
-  // async componentDidMount() {
-  //   const result = await axios.get(
-  //     "https://jsonplaceholder.typicode.com/users"
-  //   );
-  //   this.setState({ data: result.data });
-  //   console.log("Load User Data");
-  // }
+  async componentDidMount() {
+    const result = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    this.setState({ data: result.data });
+    console.log("Load User Data");
+  }
 
   onChange = event => {
     //console.log(event.target.value);

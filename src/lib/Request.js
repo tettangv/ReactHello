@@ -1,12 +1,13 @@
-import { Component } from "react";
-import Axios from "axios";
+import React, { Component } from "react";
+import axios from "axios";
 
 class Request extends Component {
   state = {
     data: []
   };
+
   async componentDidMount() {
-    const result = await Axios.get(this.props.url);
+    const result = await axios.get(this.props.url);
     this.setState({ data: result.data });
   }
 
