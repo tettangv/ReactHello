@@ -12,7 +12,7 @@ class App extends Component {
     name: "Tet Tangvongsasiriwat"
   };
 
-  onNameChange = name => {
+  onNameChanges = name => {
     this.setState({ name: name });
   };
 
@@ -22,16 +22,16 @@ class App extends Component {
       <div>
         <div>Hello {name}</div>
         <div>
-          <Names name={name} onNameChange={this.onNameChange} />
+          <Names name={name} onNameChanges={this.onNameChanges} />
         </div>
         <div>
           <Link to="/">Home</Link>
         </div>
         <div>
-          <Link to="/users">Users..</Link>
+          <Link to="/users">Users...1</Link>
         </div>
         <div>
-          <Link to="/postss">Posts...</Link>
+          <Link to="/postss">Posts..2</Link>
         </div>
         <Route path="/users" component={Users}></Route>
         <Route path="/postss" component={Postss}></Route>
