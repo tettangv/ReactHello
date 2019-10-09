@@ -9,6 +9,19 @@ import { Route, Link } from "react-router-dom";
 import Chatroom from "./chat/Chatroom";
 import ChatroomCount from "./chat/ChatroomCount";
 import ChatForm from "./chat/ChatForm";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
 
 class App extends Component {
   state = {
@@ -23,11 +36,42 @@ class App extends Component {
     const { name } = this.state;
     return (
       <div>
-        <div>Hello {name}</div>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">Home</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/users">User</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/postss">Post</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/chat">Chatroom</NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Chat Options
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem tag={Link} to="/countcount">
+                    countroom
+                  </DropdownItem>
+                  <DropdownItem tag={Link} to="/chatroom">
+                    Chatroom-1
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
+
+        {/* <div>Hello {name}</div>
         <div>
           <Names name={name} onNameChanges={this.onNameChanges} />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <Link to="/">Home</Link>
         </div>
         <div>
@@ -44,7 +88,7 @@ class App extends Component {
         </div>
         <div>
           <Link to="/chat">chat</Link>
-        </div>
+        </div> */}
         <Route path="/users" component={Users}></Route>
         <Route path="/postss" component={Postss}></Route>
         <Route path="/chatroom" component={Chatroom}></Route>

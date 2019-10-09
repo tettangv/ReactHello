@@ -11,6 +11,7 @@ class MessageForm extends Component {
       text: this.state.text,
       member: this.props.currentMember
     });
+    this.setState({ text: "" });
   };
 
   onChange = e => {
