@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Users from "./user/Users";
 //import { thisTypeAnnotation } from "@babel/types";
-// import Names from "./name/Names";
+import Names from "./name/Names";
 import Postss from "./post/Postss";
 // import { Route, Link } from "react-router-dom";
 import Chatroom from "./chat/Chatroom";
@@ -41,11 +41,11 @@ class App extends Component {
   };
 
   render() {
-    // const { name } = this.state;
+    const { name } = this.state;
     return (
       <div>
-        <Router>
-          {/* <Wrapper> */}
+        {/* <Router>
+         
           <Navbar color="light" light expand="md">
             <NavbarBrand href="/">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
@@ -76,14 +76,13 @@ class App extends Component {
               </Nav>
             </Collapse>
           </Navbar>
-          {/* </Wrapper> */}
-        </Router>
-
-        {/* <div>Hello {name}</div>
+         
+        </Router> */}
+        <div>Hello {name}</div>
         <div>
           <Names name={name} onNameChanges={this.onNameChanges} />
-        </div> */}
-        {/* <div>
+        </div>{" "}
+        <div>
           <Link to="/">Home</Link>
         </div>
         <div>
@@ -100,10 +99,10 @@ class App extends Component {
         </div>
         <div>
           <Link to="/chat">chat</Link>
-        </div> */}
+        </div>
         {/* <Redirect exact from="/" to="/users" /> */}
-        <Route  path="/home" component={Home}></Route>
-        <Route  path="/users" component={Users}></Route>
+        <Route path="/home" component={Home}></Route>
+        <Route path="/users" component={Users}></Route>
         <Route path="/postss" component={Postss}></Route>
         <Route path="/chatroom" component={Chatroom}></Route>
         <Route path="/countcount" component={ChatroomCount}></Route>
