@@ -25,7 +25,7 @@ class ChatForm extends Component {
           />
         </FormGroup>
 
-        <Link to={{ pathname: "/chatroom", name: name }}>Join</Link>
+        <Link to={{ pathname: "/users", name: name }}>Join</Link>
       </Form>
     );
   }
